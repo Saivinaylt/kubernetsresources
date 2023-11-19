@@ -7,8 +7,9 @@ metadata:
     duration: 6weeks
 spec:
   containers:
-  - image: nginx
-    name: nginx
+  - image: almalinux:8
+    name: almalinux
+    command: ["sleep", "20000"]
     envFrom:
     - configMapRef:
        name: passwdsec
