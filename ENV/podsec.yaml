@@ -1,0 +1,11 @@
+kind: Pod
+apiVersion: v1
+meradata:
+ name: secrets
+spec:
+  containers:
+  - image: nginx
+    name: nginx
+    envFrom:
+    - configMapRef
+        name: passwdsec
