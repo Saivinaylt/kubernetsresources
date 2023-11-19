@@ -1,0 +1,9 @@
+kind: configMap
+apiVersion: v1
+metadata:
+  name: env-config
+  labels:
+    env: configuration
+data:
+  course: kubeterrafoem
+  duartion: 90hours
