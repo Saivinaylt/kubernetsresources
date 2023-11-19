@@ -8,4 +8,5 @@ spec:
     name: nginx
     envFrom:
     - configMapRef:
-        name: passwdsec
+       name: passwdsec
+
