@@ -5,4 +5,13 @@ metadata:
 data:
   course: kubeterrafoem
   duartion: 90hours
+---
+kind: ConfigMap
+apiVersion: v1
+metadata:
+  name: env-configmaps
+data:
+  type: test
+  sample: 30min
+
 
