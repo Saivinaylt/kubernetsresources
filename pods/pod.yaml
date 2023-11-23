@@ -1,0 +1,11 @@
+# pod smallest deployable unit in kubernrts
+kind: Pod
+apiVersion: v1
+metadata:
+  name: nginx-pod
+spec:
+  containers:
+  - image: nginx
+    name: nginx
+    ports:
+    - containerPort: 80

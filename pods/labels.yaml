@@ -1,0 +1,15 @@
+# labels it is used as slectors in kubernets it will used to connect the pods to services 
+kind: Pod
+apiVersion: v1
+metadata: 
+  name: labels-sample
+  labels:
+    name: labels
+    course: kubernetes
+    duration: 10days
+spec:
+  containers:
+  - image: nginx
+    name: nginx
+    ports:
+    - containerPort: 80

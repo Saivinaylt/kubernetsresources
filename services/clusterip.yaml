@@ -1,0 +1,22 @@
+#Services in kubernrts it has 3 services in k8
+#service is used to balaning the load and exposing the application to the outside world and its acts as a service mesh 
+# clusterip: real will get more clarity
+# nodeport: exposing the applocaion to outside world u can acces with ec2ip:nodeport type: NodePort
+# loadbalancer: complete cloud concept aws
+# how theservice eill go and connect to pod is through the pod labels has give to serive under selector section
+kind: Service
+apiVersion: v1
+metadata:
+  name: cluster-ip
+  labels:
+    servicetype: clusterip
+spec:
+  selector:
+    matchLabels:
+      course: kubernetes
+  ports:
+  - name: http
+    protocol: tcp
+    port: 80
+    target: 80
+---

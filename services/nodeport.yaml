@@ -1,0 +1,16 @@
+kind: Service
+apiVersion: v1
+metadata: 
+  name: nodeport
+  labels:
+    servicetype: nodeport
+spec:
+  type: NodePort
+  selector: 
+    course: kubernets
+  ports
+  - name: http
+    protocol: tcp
+    port: 80
+    target: 80
+

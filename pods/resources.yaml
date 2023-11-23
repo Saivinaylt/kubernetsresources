@@ -1,0 +1,20 @@
+# resources it will used to restrice the container will acess the useage of cpu and memory to some level if developer writeen some bad 
+#code it will occupy the whole cpu resoureces for best practices will use resouces and limit the containers
+kind: Pod
+apiVersion: v1
+metadata:
+  name: resouces
+spec:
+  containers:
+  - image: nginx
+    name: nginx
+    imagePullPolicy: Always
+    resouces:
+      requests:
+        # cpu cores 
+        cpu: "0.3"
+        #ram of the system
+        memory: "126mi"
+      limits:
+        cpu: "0.4"
+        memory: "130mi"

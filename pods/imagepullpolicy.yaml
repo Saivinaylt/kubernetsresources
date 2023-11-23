@@ -1,0 +1,12 @@
+# image pull policy was kep in always its used for after build the omage ur pushing it to respictive repo eg: dockerhub
+#if u kept poliy as true only if developer updates the iamge and pushed to repo u can get the updated one else u wont get the 
+#latest version
+kind: Pod
+apiVersion: v1
+metadata:
+  name: imagepullpolicyalways
+spec:
+  container:
+  - image: nginx
+    name: nginx
+    imagePullPolicy: Always

@@ -1,0 +1,12 @@
+kind: Pod
+apiversion: v1
+metadata:
+  name: configarationfromconfigmap
+spec: 
+  containers:
+  - image: nginx
+    name: nginx
+    imagePullPolicy: Always
+    envFrom:
+    - configMapRef:
+        name: configmap
