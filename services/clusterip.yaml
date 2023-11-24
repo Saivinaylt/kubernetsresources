@@ -13,8 +13,7 @@ metadata:
     servicetype: clusterip
 spec:
   selector:
-    matchLabels:
-      course: kubernetes
+    course: kubernetes
   ports:
   - name: http
     protocol: tcp
