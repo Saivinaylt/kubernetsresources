@@ -7,7 +7,6 @@
 kind: Service
 apiVersion: v1
 metadata:
-  namespace: roboshop
   name: cluster-ip
   labels:
     servicetype: clusterip
@@ -24,7 +23,6 @@ kind: Pod
 apiVersion: v1
 metadata: 
   name: clustreip
-  namespace: roboshop
   labels:
     name: labels
     course: kubernetes
