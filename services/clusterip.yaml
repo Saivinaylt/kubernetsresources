@@ -7,7 +7,7 @@
 kind: Service
 apiVersion: v1
 metadata:
-` namespace: roboshop
+  namespace: roboshop
   name: cluster-ip
   labels:
     servicetype: clusterip
