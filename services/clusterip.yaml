@@ -40,7 +40,6 @@ kind: Pod
 apiVersion: v1
 metadata: 
   name: debug
-  namespace: roboshop
 spec:
   containers:
   - image: "almalinux:8"
