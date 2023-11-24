@@ -11,7 +11,7 @@ spec:
     duration: 6months
   ports:
   - name: http
-    protocol: tcp
+    protocol: TCP
     port: 80
     targetPort: 80
 ---
