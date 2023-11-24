@@ -29,4 +29,17 @@ spec:
     name: nginx
     ports:
     - containerPort: 80
-
+---
+kind: Pod
+apiVersion: v1
+metadata:
+  name: nodeporttest
+  labels:
+    course: kubernetes
+    duration: 6months
+spec:
+  containers:
+  - image: nginx
+    name: nginx
+    ports:
+    - containerPort: 80
