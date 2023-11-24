@@ -7,10 +7,25 @@ metadata:
 spec:
   type: NodePort
   selector: 
-    course: kubernets
-  ports
+    course: kubernetes
+    duration: 6months
+  ports:
   - name: http
     protocol: tcp
     port: 80
-    target: 80
+    targetPort: 80
+---
+kind: Pod
+apiVersion: v1
+metadata:
+  name: nodeport
+  labels:
+    course: kubernetes
+    duration: 6months
+spec:
+  containers:
+  - image: nginx
+    name: nginx
+    ports:
+    - containerPort: 80
 
