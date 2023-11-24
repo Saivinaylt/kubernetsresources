@@ -7,5 +7,5 @@ metadata:
   name: imagepullpolicyalways
 spec:
   containers:
-  - image: nginx
+  - image: "nginx:stable-perl"
     name: nginx
