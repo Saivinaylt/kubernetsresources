@@ -9,4 +9,3 @@ spec:
   container:
   - image: nginx
     name: nginx
-    imagePullPolicy: Always
