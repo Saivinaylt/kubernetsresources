@@ -16,7 +16,7 @@ spec:
     course: kubernetes
   ports:
   - name: http
-    protocol: tcp
+    protocol: TCP
     port: 80
     targetPort: 80
 ---
