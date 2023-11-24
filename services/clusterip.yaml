@@ -41,10 +41,8 @@ apiVersion: v1
 metadata: 
   name: debug
   namespace: roboshop
-  labels:
-    duration: 10days
 spec:
   containers:
-  - image: almalinux:8
+  - image: "almalinux:8"
     name: almalinux
     command: ["sleep", "20000"]
