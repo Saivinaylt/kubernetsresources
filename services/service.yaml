@@ -1,0 +1,46 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: nginx-service
+  namespace: default
+  labels:
+    name: nginx-service
+    environment: DEV
+spec:
+  selector:
+  # you should provide pod labels here
+    course: kubernetes
+  ports:
+  - name: http-port
+    protocol: TCP
+    # service port
+    port: 80
+    # pod port
+    targetPort: 80
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: debug-pod
+spec:
+  containers:
+  - name: debug-pod
+    image: "almalinux:8"
+    command: ["sleep", "20000"]
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: label-1
+  # labels has filtartion feature and some other functional uses.
+  labels:
+    app: nginx
+    environment: DEV
+    course: kubernetes
+    duration: 6weeks
+  annotations:
+    com.joindevops.maintainer: sivakumar
+spec:
+  containers:
+  - name: label
+    image: nginx
