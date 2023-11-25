@@ -24,7 +24,6 @@ spec:
 ---
 kind: Pod
 apiVersion: v1
-kind: Pod
 metadata:
   name: debug
 spec:
