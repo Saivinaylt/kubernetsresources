@@ -7,7 +7,7 @@
 kind: Service
 apiVersion: v1
 metadata:
-  name: cluster
+  name: clusterservice
   labels:
     servicetype: clusterip
 spec:
@@ -40,8 +40,9 @@ metadata:
   name: debug
 spec:
   containers:
-  - image: "almalinux:8"
-    name: almalinux
-    command: ["sleep", "20000"]
+  - image: nginx
+    name: checkip
+    ports:
+    - containerPort: 80
 # AKIAXG2YONK62TNVVZNP
 # cLMk4fRW629fKED/Kz4rVZYwpBcPQx6P69uDpZT2
