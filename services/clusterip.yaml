@@ -7,7 +7,7 @@
 kind: Service
 apiVersion: v1
 metadata:
-  name: cluster-ip
+  name: cluster
   labels:
     servicetype: clusterip
 spec:
