@@ -1,15 +1,7 @@
-#Services in kubernrts it has 3 services in k8
-#service is used to balaning the load and exposing the application to the outside world and its acts as a service mesh 
-# clusterip: real will get more clarity
-# nodeport: exposing the applocaion to outside world u can acces with ec2ip:nodeport type: NodePort
-# loadbalancer: complete cloud concept aws
-# how theservice eill go and connect to pod is through the pod labels has give to serive under selector section
-kind: Service
+Kind: Service
 apiVersion: v1
 metadata:
-  name: clusterservice
-  labels:
-    servicetype: clusterip
+  name: test
 spec:
   selector:
     course: kubernetes
@@ -21,28 +13,21 @@ spec:
 ---
 kind: Pod
 apiVersion: v1
-metadata: 
-  name: clustreip
+metadata:
+  name: nginx
   labels:
-    name: labels
     course: kubernetes
-    duration: 10days
 spec:
   containers:
   - image: nginx
     name: nginx
-    ports:
-    - containerPort: 80
 ---
-kind: Pod
 apiVersion: v1
-metadata: 
+kind: Pod
+metadata:
   name: debug
 spec:
   containers:
-  - image: nginx
-    name: checkip
-    ports:
-    - containerPort: 80
-# AKIAXG2YONK62TNVVZNP
-# cLMk4fRW629fKED/Kz4rVZYwpBcPQx6P69uDpZT2
+  - name: debug
+    image: "almalinux:8"
+    command: ["sleep", "20000"]
