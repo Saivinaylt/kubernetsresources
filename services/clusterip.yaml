@@ -10,24 +10,3 @@ spec:
     protocol: TCP
     port: 80
     targetPort: 80
----
-kind: Pod
-apiVersion: v1
-metadata:
-  name: nginx
-  labels:
-    course: kubernetes
-spec:
-  containers:
-  - image: nginx
-    name: nginx
----
-kind: Pod
-apiVersion: v1
-metadata:
-  name: debug
-spec:
-  containers:
-  - name: debug
-    image: "almalinux:8"
-    command: ["sleep", "20000"]
