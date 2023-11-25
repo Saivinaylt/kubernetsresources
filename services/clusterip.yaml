@@ -1,31 +1,11 @@
-Kind: Service
+kind: Pod 
 apiVersion: v1
 metadata:
-  name: test
+  name: nginx
 spec:
-  selector:
-    course: kubernetes
-  ports:
-  - name: http
-    protocol: TCP
-    port: 80
-    targetPort: 80
-# apiVersion: v1
-# kind: Service
-# metadata:
-#   name: nginx-service
-#   namespace: default
-#   labels:
-#     name: nginx-service
-#     environment: DEV
-# spec:
-#   selector:
-#   # you should provide pod labels here
-#     course: kubernetes
-#   ports:
-#   - name: http-port
-#     protocol: TCP
-#     # service port
-#     port: 80
-#     # pod port
-#     targetPort: 80
+  containers:
+  - image: nginx
+    name: nginx
+    ports:
+    - containerPort: 80
+
