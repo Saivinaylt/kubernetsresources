@@ -10,24 +10,11 @@ spec:
     name: nginx
     ports:
     - containerPort: 80.
-# ---
-# apiVersion: v1
-# kind: Service
-# metedata:
-#   name: nginxservice
-# spec:
-#   selector:
-#     course: kubernetes
-#   ports:
-#   - name: http-port
-#     protocol: TCP
-#     port: 80
-#     targetPort: 80
 ---
 apiVersion: v1
 kind: Service
-metadata:
-  name: nginx-service
+metedata:
+  name: nginxservice
 spec:
   selector:
     course: kubernetes
@@ -36,5 +23,18 @@ spec:
     protocol: TCP
     port: 80
     targetPort: 80
+# ---
+# apiVersion: v1
+# kind: Service
+# metadata:
+#   name: nginx-service
+# spec:
+#   selector:
+#     course: kubernetes
+#   ports:
+#   - name: http-port
+#     protocol: TCP
+#     port: 80
+#     targetPort: 80
 
 
