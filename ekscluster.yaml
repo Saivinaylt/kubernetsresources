@@ -6,7 +6,7 @@ metadata:
   region: ap-south-1
 
 nodeGroups:
-  - name: eks-spot-cluster
+  - name: spot
     instanceType: m5.large
     desiredCapacity: 3
     spot: true
