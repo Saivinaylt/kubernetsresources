@@ -13,5 +13,15 @@ spec:
     protocol: TCP
     port: 80
     targetPort: 80
-
+---
+kind: Pod
+apiVersion: v1
+metadata:
+  name: nginx
+  labels:
+    course: kubernets
+spec:
+  containers:
+  - image: nginx
+    name: nginx
 
