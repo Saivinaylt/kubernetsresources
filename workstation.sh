@@ -22,20 +22,20 @@ VALIDATE(){
 
 }
 
-yum update  -y &>>$LOG
-VALIDATE $? "Updating packages"
+# yum update  -y &>>$LOG
+# VALIDATE $? "Updating packages"
 
-amazon-linux-extras install docker -y &>>$LOG
-VALIDATE $? "Installing Docker"
+# amazon-linux-extras install docker -y &>>$LOG
+# VALIDATE $? "Installing Docker"
 
-service docker start &>>$LOG
-VALIDATE $? "Starting Docker"
+# service docker start &>>$LOG
+# VALIDATE $? "Starting Docker"
 
-systemctl enable docker &>>$LOG
-VALIDATE $? "Enabling Docker"
+# systemctl enable docker &>>$LOG
+# VALIDATE $? "Enabling Docker"
 
-usermod -a -G docker ec2-user &>>$LOG
-VALIDATE $? "Added ec2-user to docker group"
+# usermod -a -G docker ec2-user &>>$LOG
+# VALIDATE $? "Added ec2-user to docker group"
 
 yum install git -y &>>$LOG
 VALIDATE $? "Installing GIT"

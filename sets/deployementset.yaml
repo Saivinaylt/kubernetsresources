@@ -1,0 +1,19 @@
+kind: Deployement
+apiVersion: apps/v1
+metedata: 
+  name: deployement
+  labels:
+    kind: deployement
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      course: kubrenetes
+  template:
+    metedata:
+      labels:
+        course: kubernetes
+    spec:
+    - image: nginx
+      name: nginx
+

@@ -1,0 +1,32 @@
+kind: ReplicaSet
+apiVersion: apps/v1
+metadata:
+  name: replicaset
+  labels:
+    kind: replicaset
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      course: kubernetes
+  template:
+    metadata:
+      labels:
+        course: kubernetes
+    spec:
+      containers:
+      - image: nginx
+        name: nginx
+---
+kind: Service
+apiVersion: v1
+metadata:
+  name: clsterip
+spec:
+  selector:
+    course: kubernetes
+  ports:
+  - name: http
+    protocol: TCP
+    port: 80
+    targetPort: 80
