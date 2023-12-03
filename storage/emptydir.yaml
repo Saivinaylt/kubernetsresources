@@ -1,3 +1,6 @@
+# mount configmap as volume to pod
+# pushing pod logs to elastice search using filebeat sidecar for pod logs
+# mount empty dir to both the containers to access filebet to nginx logs
 apiVersion: v1
 kind: ConfigMap
 metadata:
