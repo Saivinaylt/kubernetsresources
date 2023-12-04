@@ -1,4 +1,14 @@
-#host path we not se hostpath beacuse it security risks
+#host path we not use hostpath beacuse it security risks if hacker get the acces og host he can acces to every resouce
+# we use only one exceptionl case DeamonSet use to push the underline host logs to external system used for admistration purpose
+# eg: difine a volume as 
+# volumes:
+# - name: hostpath
+#   hostPath:
+#     path: /var/log
+# volumeMounts:
+# - name: hostpath
+#   mounthPath: /var/log
+
 apiVersion: apps/v1
 kind: DaemonSet
 metadata:
