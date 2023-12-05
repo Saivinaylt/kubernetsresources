@@ -42,19 +42,19 @@ spec:
     presistentVolumeClaim:
       claimName: efs-dynamic-pvc
 ---
-kind: Storage
-apiVersion: v1
-metadata:
-  name: efs-service
-spec:
-  selector:
-    kind: dynamic-efs
-    type: storage
-  ports:
-  - name: http-port
-    protocol: TCP
-    port: 80
-    targetPort: 80
+# kind: Storage
+# apiVersion: v1
+# metadata:
+#   name: efs-service
+# spec:
+#   selector:
+#     kind: dynamic-efs
+#     type: storage
+#   ports:
+#   - name: http-port
+#     protocol: TCP
+#     port: 80
+#     targetPort: 80
 
 
 
