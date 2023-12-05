@@ -42,19 +42,20 @@ spec:
     persistentVolumeClaim: 
       claimName: efs-dynamic-pvc
 ---
-# kind: Storage
-# apiVersion: v1
-# metadata:
-#   name: efs-service
-# spec:
-#   selector:
-#     kind: dynamic-efs
-#     type: storage
-#   ports:
-#   - name: http-port
-#     protocol: TCP
-#     port: 80
-#     targetPort: 80
+kind: Storage
+apiVersion: v1
+metadata:
+  name: efs-service
+spec:
+  type: LoadBalancer
+  selector:
+    kind: efs-dynamic
+    type: efs
+  ports:
+  - name: http-port
+    protocol: TCP
+    port: 80
+    targetPort: 80
 
 
 
