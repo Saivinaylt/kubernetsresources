@@ -1,0 +1,61 @@
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: efs-pv
+spec:
+  capacity:
+    storage: 15Gi
+  volumeMode: Filesystem
+  accessModes:
+    - ReadWriteOnce
+  storageClassName: ""
+  persistentVolumeReclaimPolicy: Retain
+  csi:
+    driver: efs.csi.aws.com
+    volumeHandle: "fs-087c9a95c3c189f57"
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: efs-claim
+spec:
+  accessModes:
+    - ReadWriteOnce
+  storageClassName: ""
+  resources:
+    requests:
+      storage: 5Gi
+---
+kind: Pod
+apiVersion: v1
+metadata:
+  name: efs-static
+  labels:
+    kind: efs-static
+    type: storage
+spec:
+  containers:
+  - image: nginx
+    name: nginx
+    volumeMounts:
+    - name: efs-static
+      volumeMounts: "/usr/share/nginx/html" 
+  volumes:
+  - name: efs-static
+    persistentVolumeClaim:
+      claimName: efs-claim
+---
+kind: Service
+apiVersion: v1
+metadata:
+  name: efs-static
+spec:
+  type: LoadBalancer
+  selector:
+    kind: efs-static
+    type: storage
+  ports:
+  - name: http-port
+    protocol: TCP
+    port: 80
+    targetPort: 80
