@@ -25,21 +25,21 @@ spec:
 ---
 kind: Pod
 apiVersion: v1
-metadata:
-  name: efs-dunamic
+metadata: 
+  name: efs-dynamic
   labels:
-    kind: dynamic-efs
-    type: storage
+    kind: efs-dynamic
+    type: efs
 spec:
   containers:
   - image: nginx
     name: nginx
     volumeMounts:
-    - name: efs-dynamic
+    - name: ebs-dynamic
       mountPath: "/usr/share/nginx/html"
   volumes:
   - name: efs-dynamic
-    presistentVolumeClaim:
+    persistentVolumeClaim: 
       claimName: efs-dynamic-pvc
 ---
 # kind: Storage
