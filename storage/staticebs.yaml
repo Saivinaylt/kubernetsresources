@@ -11,3 +11,46 @@ spec:
   awsElasticBlockStore:
     volumeID: vol-0277b8f3df8c68baa
     fsType: ext4
+---
+kind: Pod
+apiVersion: v1
+metadata:
+  name: ebs-static
+  labels:
+    kind: storage
+    type: ebs
+spec:
+  containers:
+  - image: nginx
+    name: nginx
+    volumeMounts:
+    - name: staticebs
+      mountPath: "/usr/share/nginx/html"
+  volumes:
+  - name: staticebs
+    PersistentVolumeClaim:
+      name: ebs-static
+---
+kind: Service
+apiVersion: v1
+metadata:
+  name: ebsservice
+  labels:
+    kind: service
+    type: ebs
+spec:
+  type: LoadBalancer
+  selector:
+    kind: storage
+    type: ebs
+  ports:
+  - name: http-port
+    protocol: tCP
+    port: 80
+    targetPort: 80
+
+
+
+
+
+
