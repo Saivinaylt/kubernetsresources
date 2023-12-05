@@ -52,10 +52,12 @@ spec:
     kind: efs-dynamic
     type: efs
   ports:
-  - name: http-port
+  - name: http
     protocol: TCP
     port: 80
     targetPort: 80
+  
+
 
 
 
