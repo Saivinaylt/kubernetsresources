@@ -39,7 +39,7 @@ data:
       - system:nodes
       rolearn: arn:aws:iam::860960321717:role/eksctl-eks-cluster-nodegroup-kuber-NodeInstanceRole-WORTW7MWL1qF
       username: system:node:{{EC2PrivateDNSName}}
-   mapUsers: |
+  mapUsers: |
     - groups:
       - roboshop-admin
       userarn: arn:aws:iam::860960321717:user/saivinay
