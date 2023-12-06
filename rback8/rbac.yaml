@@ -1,6 +1,6 @@
 kind: Namespace
 apiVersion: v1
-metedata:
+metadata:
   name: roboshop
 ---
 apiVersion: rbac.authorization.k8s.io/v1
