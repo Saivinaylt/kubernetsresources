@@ -1,4 +1,4 @@
-# it will used for statefull application eg mongodb mysql redis rabbitmq becuase it holds the data 
+s# it will used for statefull application eg mongodb mysql redis rabbitmq becuase it holds the data 
 #in statefullset storage was comination of pv and pv no need to create both individually we are dynamic ebs storageclass
 # it will create proper name and network eg web-o web1 web2 and it will create one afrer one
 # and pv and pv attached 
@@ -48,7 +48,7 @@ spec:
       name: nginx
     spec:
       accessModes: [ "ReadWriteOnce" ]
-      storageClassName: ""
+      storageClassName: "ebs-dynamic-sc"
       resources:
         requests:
           storage: 10Gi
