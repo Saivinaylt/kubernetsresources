@@ -37,7 +37,7 @@ data:
     - groups:
       - system:bootstrappers
       - system:nodes
-      rolearn: arn:aws:iam::860960321717:role/eksctl-eks-cluster-nodegroup-kuber-NodeInstanceRole-WORTW7MWL1qF
+      rolearn: arn:aws:iam::860960321717:role/eksctl-eks-cluster-nodegroup-kuber-NodeInstanceRole-z7d2AZyPRNeJ
       username: system:node:{{EC2PrivateDNSName}}
   mapUsers: |
     - groups:
@@ -46,10 +46,10 @@ data:
       username: saivinay
 kind: ConfigMap
 metadata:
-  creationTimestamp: "2023-12-06T12:25:43Z"
+  creationTimestamp: "2023-12-07T06:03:18Z"
   name: aws-auth
   namespace: kube-system
-  uid: 416be42d-823f-459d-a0cd-42f8a52a99d0
+  uid: 165d37a5-98ff-4d41-9033-a7b838c586ac
 ---
 apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRole
