@@ -48,7 +48,7 @@ spec:
       name: nginx
     spec:
       accessModes: [ "ReadWriteOnce" ]
-      storageClassName: "ebs-dynamic-sc"
+      # storageClassName: "ebs-dynamic-sc"
       resources:
         requests:
           storage: 10Gi
