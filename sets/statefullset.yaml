@@ -1,9 +1,3 @@
-s# it will used for statefull application eg mongodb mysql redis rabbitmq becuase it holds the data 
-#in statefullset storage was comination of pv and pv no need to create both individually we are dynamic ebs storageclass
-# it will create proper name and network eg web-o web1 web2 and it will create one afrer one
-# and pv and pv attached 
-# it has headless service u need to menction in service as clusterIp: None it willl run background nslookp up and it wil fetch the 
-# the ip address in the ckuster in cluster env every dbnode wanr to communicate with other node it will use 
 apiVersion: v1
 kind: Service
 metadata:
@@ -34,6 +28,7 @@ spec:
       labels:
         app: nginx # has to match .spec.selector.matchLabels
     spec:
+      terminationGracePeriodSeconds: 10
       containers:
       - name: nginx
         image: registry.k8s.io/nginx-slim:0.8
@@ -41,14 +36,14 @@ spec:
         - containerPort: 80
           name: web
         volumeMounts:
-        - name: nginx
+        - name: www
           mountPath: /usr/share/nginx/html
   volumeClaimTemplates:
   - metadata:
-      name: nginx
+      name: www
     spec:
       accessModes: [ "ReadWriteOnce" ]
-      # storageClassName: "ebs-dynamic-sc"
+      storageClassName: "ebs-dynamic-sc"
       resources:
         requests:
-          storage: 10Gi
+          storage: 1Gi
