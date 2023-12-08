@@ -1,0 +1,58 @@
+kind: Namespace
+apiVersion: v1
+metadata:
+  name: roboshop
+---
+#creating a role which the user can acces all the resoures which applies to namespace roboshop-admin
+apiVersion: rbac.authorization.k8s.io/v1
+kind: Role
+metadata:
+  namespace: roboshop
+  name: pod-reader
+rules:
+- apiGroups: ["*"] # "" indicates the core API group
+  resources: [""]
+  verbs: [""]
+---
+#bindong the rolw with iam user rolebinding
+apiVersion: rbac.authorization.k8s.io/v1
+# This role binding allows "jane" to read pods in the "default" namespace.
+# You need to already have a Role named "pod-reader" in that namespace.
+kind: RoleBinding
+metadata:
+  name: read-pods
+  namespace: roboshop
+subjects:
+# You can specify more than one "subject"
+- kind: User
+  name: vinay # "name" is case sensitive
+  apiGroup: rbac.authorization.k8s.io
+roleRef:
+  # "roleRef" specifies the binding to a Role / ClusterRole
+  kind: Role #this must be Role or ClusterRole
+  name: pod-reader # this must match the name of the Role or ClusterRole you wish to bind to
+  apiGroup: rbac.authorization.k8s.io
+---
+  #By defualt eks will not understand the abot iam user even it was in aws kubernetes platform as a service only 
+  #u need to change some conigarion in configmap aws-auth in kube-system namespace add the user name and arn so that user can acces it
+apiVersion: v1
+data:
+  mapRoles: |
+    - groups:
+      - system:bootstrappers
+      - system:nodes
+      rolearn: arn:aws:iam::860960321717:role/eksctl-eks-cluster-nodegroup-kuber-NodeInstanceRole-2TwZyZhpAUiK
+      username: system:node:{{EC2PrivateDNSName}}
+  mapUsers: |
+    - groups:
+      - read-pods
+      userarn: arn:aws:iam::860960321717:user/vinay
+      username: vinay
+kind: ConfigMap
+metadata:
+  creationTimestamp: "2023-12-08T06:05:34Z"
+  name: aws-auth
+  namespace: kube-system
+  resourceVersion: "1382"
+  uid: 22a5d48e-3363-492e-a39e-464fac7ab671
+
