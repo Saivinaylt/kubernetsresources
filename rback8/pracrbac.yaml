@@ -57,4 +57,30 @@ metadata:
 ---
 # after attaching the user arn and name aws-auth configmap how the user will get the kubectl configaration.he need to fallow some step
 # get eks kubeconfig
-
+#========> giving list down the cluster level access list the resouces using cluster role
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  # "namespace" omitted since ClusterRoles are not namespaced
+  name: secret-reader
+rules:
+- apiGroups: ["*"]
+  #
+  # at the HTTP level, the name of the resource for accessing Secret
+  # objects is "secrets"
+  resources: ["nodes"]
+  verbs: ["get", "watch", "list"]
+---
+apiVersion: rbac.authorization.k8s.io/v1
+# This cluster role binding allows anyone in the "manager" group to read secrets in any namespace.
+kind: ClusterRoleBinding
+metadata:
+  name: read-secrets-global
+subjects:
+- kind: User
+  name: vinay # Name is case sensitive
+  apiGroup: rbac.authorization.k8s.io
+roleRef:
+  kind: ClusterRole
+  name: secret-reader
+  apiGroup: rbac.authorization.k8s.io
