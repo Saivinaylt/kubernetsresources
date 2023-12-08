@@ -11,8 +11,8 @@ metadata:
   name: pod-reader
 rules:
 - apiGroups: ["*"] # "" indicates the core API group
-  resources: [""]
-  verbs: [""]
+  resources: ["*"]
+  verbs: ["*"]
 ---
 #bindong the rolw with iam user rolebinding
 apiVersion: rbac.authorization.k8s.io/v1
