@@ -53,6 +53,8 @@ metadata:
   creationTimestamp: "2023-12-08T06:05:34Z"
   name: aws-auth
   namespace: kube-system
-  resourceVersion: "1382"
   uid: 22a5d48e-3363-492e-a39e-464fac7ab671
+---
+# after attaching the user arn and name aws-auth configmap how the user will get the kubectl configaration.he need to fallow some step
+# get eks kubeconfig
 
