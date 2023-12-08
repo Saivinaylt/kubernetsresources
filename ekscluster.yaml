@@ -2,14 +2,13 @@ apiVersion: eksctl.io/v1alpha5
 kind: ClusterConfig
 
 metadata:
-  name: eks-cluster
+  name: eks-kub-cluster
   region: ap-south-1
 
 managedNodeGroups:
   - name: kubernetes
     instanceType: m5.large
     # your K8 node can be anytime taken back by AWS
-    spot: true
     desiredCapacity: 3
     # created to practice EBS static provisioning
     availabilityZones:
