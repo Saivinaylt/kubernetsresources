@@ -41,7 +41,7 @@ data:
     - groups:
       - system:bootstrappers
       - system:nodes
-      rolearn: arn:aws:iam::860960321717:role/eksctl-eks-cluster-nodegroup-kuber-NodeInstanceRole-2TwZyZhpAUiK
+      rolearn: arn:aws:iam::860960321717:role/eksctl-eks-kub-cluster-nodegroup-k-NodeInstanceRole-5ZyOEcO2iYk0
       username: system:node:{{EC2PrivateDNSName}}
   mapUsers: |
     - groups:
@@ -50,10 +50,10 @@ data:
       username: vinay
 kind: ConfigMap
 metadata:
-  creationTimestamp: "2023-12-08T06:05:34Z"
+  creationTimestamp: "2023-12-09T03:01:24Z"
   name: aws-auth
   namespace: kube-system
-  uid: 22a5d48e-3363-492e-a39e-464fac7ab671
+  uid: a26435b3-1b50-4a66-b1cc-dbba30e81870
 ---
 # after attaching the user arn and name aws-auth configmap how the user will get the kubectl configaration.he need to fallow some step
 # get eks kubeconfig
