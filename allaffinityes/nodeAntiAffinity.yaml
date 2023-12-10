@@ -1,3 +1,4 @@
+# nodeAntiAffinity its nothing but operators i menctioned as NotIn so the pod wont create on the taged node 
 apiVersion: v1
 kind: Pod
 metadata:
