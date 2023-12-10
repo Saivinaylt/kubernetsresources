@@ -28,7 +28,6 @@ spec:
   affinity:
     nodeAffinity:
       preferredDuringSchedulingIgnoredDuringExecution:
-      - weight: 1
         preference:
           matchExpressions:
           - key: another-node-label-key
