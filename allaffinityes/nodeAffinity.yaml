@@ -1,6 +1,25 @@
 # node affinity its simplilar like node slelctor, nodeAffinity required during sheduling is a hard rule nodeaffinity has to mach the
 # node labels if not matched u can deploye a po it wont create a pod
 # based on some operators u can use as per ur requirements
+# apiVersion: v1
+# kind: Pod
+# metadata:
+#   name: with-node-affinity
+# spec:
+#   affinity:
+#     nodeAffinity:
+#       requiredDuringSchedulingIgnoredDuringExecution:
+#         nodeSelectorTerms:
+#         - matchExpressions:
+#           - key: tier
+#             operator: In
+#             values:
+#             - web
+#   containers:
+#   - name: with-node-affinity
+#     image: nginx
+
+# preffered during sheduling its soft rule if label was not amtched aslo the pod will create k8 sheduler will take the decession
 apiVersion: v1
 kind: Pod
 metadata:
@@ -8,14 +27,13 @@ metadata:
 spec:
   affinity:
     nodeAffinity:
-      requiredDuringSchedulingIgnoredDuringExecution:
-        nodeSelectorTerms:
-        - matchExpressions:
-          - key: tier
+      preferredDuringSchedulingIgnoredDuringExecution:
+        preference:
+          matchExpressions:
+          - key: another-node-label-key
             operator: In
             values:
-            - db
+            - another-node-label-value
   containers:
   - name: with-node-affinity
     image: nginx
-
