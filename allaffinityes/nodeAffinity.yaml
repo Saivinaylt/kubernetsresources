@@ -20,6 +20,7 @@
 #     image: nginx
 
 # preffered during sheduling its soft rule if label was not amtched aslo the pod will create k8 sheduler will take the decession
+# in prefered during sheduling weughts are mandatory to pass 
 apiVersion: v1
 kind: Pod
 metadata:
