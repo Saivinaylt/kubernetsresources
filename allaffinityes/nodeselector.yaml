@@ -20,6 +20,7 @@ spec:
       containers:
       - image: nginx
         name: nginx
+# nodeselector in k8 tag the node with key name and value then menction in pod as container level nodeSelector under key and value
       nodeSelector:
         tier: web
 
