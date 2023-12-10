@@ -14,7 +14,7 @@ spec:
           - key: tier
             operator: In
             values:
-            - web
+            - db
   containers:
   - name: with-node-affinity
     image: nginx
