@@ -10,6 +10,6 @@ spec:
     name: web
   tolerations:
   - key: "project"
-    value: "roboshop"
+    value: "robo"
     operator: "Equal"
     effect: "NoSchedule"
