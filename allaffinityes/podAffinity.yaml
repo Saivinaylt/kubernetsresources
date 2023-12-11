@@ -2,10 +2,10 @@
 kind: Pod
 apiVersion: v1
 metadata:
-  name: catalogue
+  name: web
   namespace: roboshop
   labels:
-    name: catalogue
+    name: web
 spec:
   containers:
   - image: nginx
