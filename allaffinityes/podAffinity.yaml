@@ -1,31 +1,38 @@
-# pod affinity os like where the pod1 was running ur next creating pod will go to the nonde where pod 1 was exist
-apiVersion: v1
+# docker run -p 80:80 nginx --> pull image from dockerhub and create container
 kind: Pod
+apiVersion: v1
 metadata:
   name: catalogue
+  namespace: roboshop
   labels:
     name: catalogue
 spec:
   containers:
-  - name: catalogue
-    image: nginx
+  - image: nginx
+    name: nginx
+    ports:
+    - containerPort: 80
 ---
-#So i want my cart pod where catalogue pod was runnng podAffinity
-apiVersion: v1
-kind: Pod
-metadata:
-  name: with-pod-affinity
-spec:
-  affinity:
-    podAffinity:
-      requiredDuringSchedulingIgnoredDuringExecution:
-      - labelSelector:
-          matchExpressions:
-          - key: name
-            operator: In
-            values:
-            - catalogue
-        topologyKey: topology.kubernetes.io/zone
-  containers:
-  - name: cart
-    image: nginx
+# kind: Pod
+# apiVersion: v1
+# metadata:
+#   name: cart
+#   namespace: roboshop
+#   labels:
+#     name: cart
+# spec:
+#   affinity:
+#     podAffinity:
+#       requiredDuringSchedulingIgnoredDuringExecution:
+#       - labelSelector:
+#           matchExpressions:
+#           - key: name
+#             operator: In
+#             values:
+#             - catalogue
+#         topologyKey: topology.kubernetes.io/zone
+#   containers:
+#   - image: nginx
+#     name: nginx
+#     ports:
+#     - containerPort: 80
