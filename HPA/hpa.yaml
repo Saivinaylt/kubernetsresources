@@ -29,7 +29,7 @@ spec:
             memory: "156Mi"
 ---
 Kind: Service
-apiversion: v1
+apiVersion: v1
 metadata:
   name: webservice
 spec:
