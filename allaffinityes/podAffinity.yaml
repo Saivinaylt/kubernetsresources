@@ -11,26 +11,26 @@ spec:
     name: nginx
     ports:
     - containerPort: 80
-# ---
-# kind: Pod
-# apiVersion: v1
-# metadata:
-#   name: cart
-#   labels:
-#     name: cart
-# spec:
-#   affinity:
-#     podAffinity:
-#       requiredDuringSchedulingIgnoredDuringExecution:
-#       - labelSelector:
-#           matchExpressions:
-#           - key: name
-#             operator: In
-#             values:
-#             - web
-#         topologyKey: topology.kubernetes.io/zone
-#   containers:
-#   - image: nginx
-#     name: nginx
-#     ports:
-#     - containerPort: 80
+---
+kind: Pod
+apiVersion: v1
+metadata:
+  name: cart
+  labels:
+    app: store
+spec:
+  affinity:
+    podAffinity:
+      requiredDuringSchedulingIgnoredDuringExecution:
+      - labelSelector:
+          matchExpressions:
+          - key: app
+            operator: In
+            values:
+            - store
+        topologyKey: topology.kubernetes.io/zone
+  containers:
+  - image: nginx
+    name: nginx
+    ports:
+    - containerPort: 80
