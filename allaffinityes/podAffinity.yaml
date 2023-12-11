@@ -1,0 +1,10 @@
+# pod affinity os like where the pod1 was running ur next creating pod will go to the nonde where pod 1 was exist
+apiVersion: v1
+kind: Pod
+metadata:
+  name: catalogue
+spec:
+  containers:
+  - name: catalogue
+    image: nginx
+    
