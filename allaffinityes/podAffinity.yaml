@@ -72,7 +72,7 @@ spec:
           - key: name
             operator: In
             values:
-            - user
+            - catalogue
         topologyKey: topology.kubernetes.io/zone
   containers:
   - image: nginx
