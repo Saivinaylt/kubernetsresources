@@ -29,7 +29,7 @@ spec:
           - key: name
             operator: In
             values:
-            - mongodb
+            - mongodbsss
         topologyKey: topology.kubernetes.io/zone
   containers:
   - image: nginx
