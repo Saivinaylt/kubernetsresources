@@ -3,7 +3,6 @@ kind: Pod
 apiVersion: v1
 metadata:
   name: web
-  namespace: roboshop
   labels:
     name: web
 spec:
@@ -17,7 +16,6 @@ spec:
 # apiVersion: v1
 # metadata:
 #   name: cart
-#   namespace: roboshop
 #   labels:
 #     name: cart
 # spec:
