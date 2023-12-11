@@ -12,27 +12,27 @@ spec:
     name: nginx
     ports:
     - containerPort: 80
-# ---
-# kind: Pod
-# apiVersion: v1
-# metadata:
-#   name: radis
-#   namespace: roboshop
-#   labels:
-#     name: radis
-# spec:
-#   affinity:
-#     podAffinity:
-#       requiredDuringSchedulingIgnoredDuringExecution:
-#       - labelSelector:
-#           matchExpressions:
-#           - key: name
-#             operator: In
-#             values:
-#             - mongodb
-#         topologyKey: topology.kubernetes.io/zone
-#   containers:
-#   - image: nginx
-#     name: nginx
-#     ports:
-#     - containerPort: 80
+---
+kind: Pod
+apiVersion: v1
+metadata:
+  name: radis
+  namespace: roboshop
+  labels:
+    name: radis
+spec:
+  affinity:
+    podAffinity:
+      requiredDuringSchedulingIgnoredDuringExecution:
+      - labelSelector:
+          matchExpressions:
+          - key: name
+            operator: In
+            values:
+            - mongodb
+        topologyKey: topology.kubernetes.io/zone
+  containers:
+  - image: nginx
+    name: nginx
+    ports:
+    - containerPort: 80
