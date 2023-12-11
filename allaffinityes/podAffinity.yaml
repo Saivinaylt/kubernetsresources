@@ -56,3 +56,26 @@ spec:
     name: nginx
     ports:
     - containerPort: 80
+------
+kind: Pod
+apiVersion: v1
+metadata:
+  name: msql
+  labels:
+    name: msql
+spec:
+  affinity:
+    podAffinity:
+      requiredDuringSchedulingIgnoredDuringExecution:
+      - labelSelector:
+          matchExpressions:
+          - key: name
+            operator: In
+            values:
+            - catalogue
+        topologyKey: topology.kubernetes.io/zone
+  containers:
+  - image: nginx
+    name: nginx
+    ports:
+    - containerPort: 80
