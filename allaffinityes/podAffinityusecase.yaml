@@ -47,10 +47,10 @@ spec:
           requiredDuringSchedulingIgnoredDuringExecution:
           - labelSelector:
               matchExpressions:
-              - key: app
+              - key: app-store
                 operator: In
                 values:
-                - store
+                - app-store
             topologyKey: "kubernetes.io/hostname"
       containers:
       - name: web-app
