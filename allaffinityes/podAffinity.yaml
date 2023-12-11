@@ -32,7 +32,7 @@ spec:
             - mongodb
         topologyKey: topology.kubernetes.io/zone
   containers:
-  - image: nginx
+  - image: mongodb
     name: nginx
     ports:
     - containerPort: 80
