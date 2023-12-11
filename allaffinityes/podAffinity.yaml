@@ -1,36 +1,37 @@
-# docker run -p 80:80 nginx --> pull image from dockerhub and create container
 kind: Pod
 apiVersion: v1
 metadata:
-  name: web
+  name: catalogue
+  namespace: roboshop
   labels:
-    app: store
+    name: catalogue
 spec:
   containers:
   - image: nginx
     name: nginx
     ports:
     - containerPort: 80
----
-kind: Pod
-apiVersion: v1
-metadata:
-  name: cart
-  labels:
-    app: cart
-spec:
-  affinity:
-    podAffinity:
-      requiredDuringSchedulingIgnoredDuringExecution:
-      - labelSelector:
-          matchExpressions:
-          - key: app
-            operator: In
-            values:
-            - store
-        topologyKey: topology.kubernetes.io/zone
-  containers:
-  - image: nginx
-    name: nginx
-    ports:
-    - containerPort: 80
+# ---
+# kind: Pod
+# apiVersion: v1
+# metadata:
+#   name: cart
+#   namespace: roboshop
+#   labels:
+#     name: cart
+# spec:
+#   affinity:
+#     podAffinity:
+#       requiredDuringSchedulingIgnoredDuringExecution:
+#       - labelSelector:
+#           matchExpressions:
+#           - key: name
+#             operator: In
+#             values:
+#             - catalogue
+#         topologyKey: topology.kubernetes.io/zone
+#   containers:
+#   - image: nginx
+#     name: nginx
+#     ports:
+#     - containerPort: 80
