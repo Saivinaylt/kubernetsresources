@@ -1,0 +1,3 @@
+# horizoantal pod autoscalling is single pod cant handel the traffic hpa will do the increase the number of reolicas of ur pod
+# vertical auto sacalling is increase the the resouces in the same server
+# u need to fallow this steps for hpa u need to install the metrix server and apche banech for request testing and resouces menctioned
