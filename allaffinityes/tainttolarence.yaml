@@ -1,0 +1,15 @@
+kind: Pod
+apiVersion: v1
+metadata:
+  name: web
+  labes:
+    type: tolerations
+spec:
+  containers:
+  - image: nginx
+    name: web
+  tolerations:
+  - key: "project"
+    operator: "Equal"
+    value: "roboshop"
+    effect: "NoSchedule"
