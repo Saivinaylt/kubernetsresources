@@ -50,7 +50,7 @@ spec:
               - key: app
                 operator: In
                 values:
-                - web-stores
+                - web
             topologyKey: "kubernetes.io/hostname"
       containers:
       - name: web-app
