@@ -1,0 +1,29 @@
+# useCae is like u r rinning 3 node cluster ur pod want to run 3 replicas in 3 different nodes for high availabilty 
+#create a deployrmrnt set with 3 replicas and in podaffinity as per ur requirement u can give the expression
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: redis-cache
+spec:
+  selector:
+    matchLabels:
+      app: store
+  replicas: 3
+  template:
+    metadata:
+      labels:
+        app: store
+    spec:
+      affinity:
+        podAntiAffinity:
+          requiredDuringSchedulingIgnoredDuringExecution:
+          - labelSelector:
+              matchExpressions:
+              - key: app
+                operator: In
+                values:
+                - store
+            topologyKey: "kubernetes.io/hostname"
+      containers:
+      - name: redis-server
+        image: redis:3.2-alpine
