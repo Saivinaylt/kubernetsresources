@@ -27,9 +27,9 @@ spec:
       - labelSelector:
           matchExpressions:
           - key: name
-            operator: In
+            operator: NotIn
             values:
-            - webdd
+            - web
         topologyKey: topology.kubernetes.io/zone
   containers:
   - image: nginx
