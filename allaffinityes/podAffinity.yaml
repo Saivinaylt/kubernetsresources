@@ -36,3 +36,27 @@ spec:
     name: nginx
     ports:
     - containerPort: 80
+---
+kind: Pod
+apiVersion: v1
+metadata:
+  name: webss
+  namespace: roboshop
+  labels:
+    name: webss
+spec:
+  affinity:
+    podAffinity:
+      requiredDuringSchedulingIgnoredDuringExecution:
+      - labelSelector:
+          matchExpressions:
+          - key: name
+            operator: NotIn
+            values:
+            - web
+        topologyKey: topology.kubernetes.io/zone
+  containers:
+  - image: nginx
+    name: nginx
+    ports:
+    - containerPort: 80
