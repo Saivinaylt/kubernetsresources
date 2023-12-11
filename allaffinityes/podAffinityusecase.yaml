@@ -7,12 +7,12 @@ metadata:
 spec:
   selector:
     matchLabels:
-      app: store
+      app: stores
   replicas: 3
   template:
     metadata:
       labels:
-        app: store
+        app: stores
     spec:
       affinity:
         podAntiAffinity:
@@ -22,25 +22,25 @@ spec:
               - key: app
                 operator: In
                 values:
-                - store
+                - stores
             topologyKey: "kubernetes.io/hostname"
       containers:
-      - name: redis-server
+      - name: nginx
         image: redis:3.2-alpine
 ---
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: web-server
+  name: web-site
 spec:
   selector:
     matchLabels:
-      app: web-store
+      app: web-stores
   replicas: 3
   template:
     metadata:
       labels:
-        app: web-store
+        app: web-stores
     spec:
       affinity:
         podAntiAffinity:
@@ -50,7 +50,7 @@ spec:
               - key: app
                 operator: In
                 values:
-                - web
+                - webs
             topologyKey: "kubernetes.io/hostname"
       containers:
       - name: web-app
