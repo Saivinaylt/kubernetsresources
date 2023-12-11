@@ -9,23 +9,23 @@ spec:
   containers:
   - name: catalogue
     image: nginx
----
-#So i want my cart pod where catalogue pod was runnng podAffinity
-apiVersion: v1
-kind: Pod
-metadata:
-  name: with-pod-affinity
-spec:
-  affinity:
-    podAffinity:
-      requiredDuringSchedulingIgnoredDuringExecution:
-      - labelSelector:
-          matchExpressions:
-          - key: name
-            operator: In
-            values:
-            - catalogue
-        topologyKey: topology.kubernetes.io/zone
-  containers:
-  - name: cart
-    image: nginx
+# ---
+# #So i want my cart pod where catalogue pod was runnng podAffinity
+# apiVersion: v1
+# kind: Pod
+# metadata:
+#   name: with-pod-affinity
+# spec:
+#   affinity:
+#     podAffinity:
+#       requiredDuringSchedulingIgnoredDuringExecution:
+#       - labelSelector:
+#           matchExpressions:
+#           - key: name
+#             operator: In
+#             values:
+#             - catalogue
+#         topologyKey: topology.kubernetes.io/zone
+#   containers:
+#   - name: cart
+#     image: nginx
