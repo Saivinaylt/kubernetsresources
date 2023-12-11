@@ -129,9 +129,9 @@ spec:
 kind: Pod
 apiVersion: v1
 metadata:
-  name: carts
+  name: cart
   labels:
-    name: carts
+    name: cart
 spec:
   affinity:
     podAffinity:
