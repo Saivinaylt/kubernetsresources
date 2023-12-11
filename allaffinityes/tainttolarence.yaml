@@ -11,5 +11,5 @@ spec:
   tolerations:
   - key: "project"
     value: "roboshop"
-    operator: "Exists"
+    operator: "Equal"
     effect: "NoSchedule"
