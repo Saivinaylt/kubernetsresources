@@ -14,29 +14,6 @@ spec:
 kind: Pod
 apiVersion: v1
 metadata:
-  name: cart
-  labels:
-    name: cart
-spec:
-  affinity:
-    podAffinity:
-      requiredDuringSchedulingIgnoredDuringExecution:
-      - labelSelector:
-          matchExpressions:
-          - key: name
-            operator: In
-            values:
-            - catalogue
-        topologyKey: topology.kubernetes.io/zone
-  containers:
-  - image: nginx
-    name: nginx
-    ports:
-    - containerPort: 80
----
-kind: Pod
-apiVersion: v1
-metadata:
   name: user
   labels:
     name: user
@@ -60,78 +37,9 @@ spec:
 kind: Pod
 apiVersion: v1
 metadata:
-  name: redis
-  labels:
-    name: redis
-spec:
-  affinity:
-    podAffinity:
-      requiredDuringSchedulingIgnoredDuringExecution:
-      - labelSelector:
-          matchExpressions:
-          - key: name
-            operator: In
-            values:
-            - catalogue
-        topologyKey: topology.kubernetes.io/zone
-  containers:
-  - image: nginx
-    name: nginx
-    ports:
-    - containerPort: 80
----
-kind: Pod
-apiVersion: v1
-metadata:
-  name: mysql
-  labels:
-    name: mysql
-spec:
-  affinity:
-    podAffinity:
-      requiredDuringSchedulingIgnoredDuringExecution:
-      - labelSelector:
-          matchExpressions:
-          - key: name
-            operator: In
-            values:
-            - catalogue
-        topologyKey: topology.kubernetes.io/zone
-  containers:
-  - image: nginx
-    name: nginx
-    ports:
-    - containerPort: 80
----
-kind: Pod
-apiVersion: v1
-metadata:
   name: pay
   labels:
     name: pay
-spec:
-  affinity:
-    podAffinity:
-      requiredDuringSchedulingIgnoredDuringExecution:
-      - labelSelector:
-          matchExpressions:
-          - key: name
-            operator: In
-            values:
-            - catalogue
-        topologyKey: topology.kubernetes.io/zone
-  containers:
-  - image: nginx
-    name: nginx
-    ports:
-    - containerPort: 80
----
-kind: Pod
-apiVersion: v1
-metadata:
-  name: cart
-  labels:
-    name: cart
 spec:
   affinity:
     podAffinity:
