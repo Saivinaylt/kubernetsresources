@@ -16,10 +16,10 @@ spec:
 kind: Pod
 apiVersion: v1
 metadata:
-  name: radis
+  name: cart
   namespace: roboshop
   labels:
-    name: radis
+    name: cart
 spec:
   affinity:
     podAffinity:
@@ -32,7 +32,7 @@ spec:
             - mongodb
         topologyKey: topology.kubernetes.io/zone
   containers:
-  - image: mongodb
+  - image: nginx
     name: nginx
     ports:
     - containerPort: 80
