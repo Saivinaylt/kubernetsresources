@@ -2,7 +2,7 @@ kind: Pod
 apiVersion: v1
 metadata:
   name: web
-  labes:
+  labels:
     type: tolerations
 spec:
   containers:
