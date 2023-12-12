@@ -2,7 +2,7 @@
 # and give the required chart pparameters in chart.yaml file 
 # This is the metadata for Helm charts
 apiVersion: v1
-name: front
+name: nginx
 version: 1.0.3 #this is the chart version
 description: This is the NgInx Helm Chart
 appVersion: v1.0.0 #this version belongs to application
