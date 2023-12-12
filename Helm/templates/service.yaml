@@ -1,0 +1,15 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: helpservice
+  labels:
+    service: loadbalancer
+spec:
+  type: LoadBalancer
+  selector:
+    resource: helmchart
+  ports:
+  - name: http-port
+    protocol: TCP
+    port: 80
+    targetPort: 80

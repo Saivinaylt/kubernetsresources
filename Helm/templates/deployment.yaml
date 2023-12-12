@@ -1,0 +1,20 @@
+kind: Deployment
+apiVersion: v1
+metadata:
+  name: helm-chart
+  labels:
+    resource: helmchart
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      resource: helmchart
+  template:
+    metadata:
+      labels:
+        resource: helmchart
+    spec:
+      containers:
+      - image: nginx
+        name: nginx
+  
