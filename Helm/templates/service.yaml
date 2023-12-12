@@ -1,15 +1,19 @@
-kind: Service
 apiVersion: v1
+kind: Service
 metadata:
-  name: helpservice
+  name: nginx-service
+  namespace: default
   labels:
-    service: loadbalancer
+    name: nginx-service
+    environment: DEV
 spec:
-  type: LoadBalancer
   selector:
-    resource: helmchart
+  # you should provide pod labels here
+    app: nginx
   ports:
   - name: http-port
     protocol: TCP
-    port: {{ .Values.service.port}}
+    # service port
+    port: {{ .Values.service.port }}
+    # pod port
     targetPort: 80

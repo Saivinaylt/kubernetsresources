@@ -1,20 +1,21 @@
-kind: Deployment
 apiVersion: apps/v1
+kind: Deployment
 metadata:
-  name: helm-chart
+  name: nginx-deployment
   labels:
-    resource: helmchart
+    app: nginx
 spec:
   replicas: {{ .Values.deployment.replicaCount }}
   selector:
     matchLabels:
-      resource: helmchart
+      app: nginx
   template:
     metadata:
       labels:
-        resource: helmchart
+        app: nginx
     spec:
       containers:
-      - image: "nginx:{{ .Values.deployment.imageVersion}}"
-        name: nginx
-  
+      - name: nginx
+        image: "nginx:{{ .Values.deployment.imageVersion}}"
+        ports:
+        - containerPort: 80
