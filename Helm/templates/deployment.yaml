@@ -15,6 +15,6 @@ spec:
         resource: helmchart
     spec:
       containers:
-      - image: "nginx:{{ Values.deployment.imageVersion }}"
+      - image: "nginx:{{ .Values.deployment.imageVersion}}"
         name: nginx
   
