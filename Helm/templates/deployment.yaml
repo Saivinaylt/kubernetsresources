@@ -5,7 +5,7 @@ metadata:
   labels:
     resource: helmchart
 spec:
-  replicas: 1
+  replicas: {{ .Values.deployment.replicaCount }}
   selector:
     matchLabels:
       resource: helmchart
@@ -15,6 +15,6 @@ spec:
         resource: helmchart
     spec:
       containers:
-      - image: nginx
+      - image: "nginx:{{ Values.deployment.deployment}}"
         name: nginx
   
