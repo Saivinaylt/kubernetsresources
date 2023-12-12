@@ -1,5 +1,5 @@
 deployment:
-  replicaCount: 6
+  replicaCount: 1
   imageVersion: latest
 service:
   port: 80
