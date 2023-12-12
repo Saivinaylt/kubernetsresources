@@ -27,4 +27,20 @@ spec:
           limits:
             cpu: "150m"
             memory: "156Mi"
+---
+kind: Service
+apiVersion: v1
+metadata:
+  name: autoscaleservice
+  labels:
+    type: service
+spec:
+  type: LoadBalancer
+  selector:
+    type: autoscaling
+  ports:
+  - name: http-port
+    protocol: TCP
+    port: 80
+    targetPort: 80
 
