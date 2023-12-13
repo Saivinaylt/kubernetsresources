@@ -1,0 +1,3 @@
+FROM nginx
+RUN rm -f /usr/share/nginx/html/index.html
+RUN echo "ths is coming from app1" > index.html
