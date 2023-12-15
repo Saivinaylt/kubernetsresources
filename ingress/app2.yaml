@@ -1,0 +1,61 @@
+kind: Deployment
+apiVersion: apps/v1
+metadata:
+  name: app2-service
+  labels:
+    service: ingress
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      name: ingress
+  template:
+    metadata:
+      labels:
+        name: ingress
+    spec:
+      containers:
+      - image: saivinaylt/app2:k8
+        name: nginx
+---
+kind: Service
+apiVersion: v1
+metadata:
+  name: app2-service
+  labels:
+    service: ingress
+spec:
+  selector:
+    name: ingress
+  ports:
+  - name: http
+    protocol: TCP
+    port: 80
+    targetPort: 80
+---
+# Here Ingress is the resource that is capable of creating AWS ALB resource, you must provide annotations
+# annotations are used to connect the external resouces you must provide annotations
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: app2service
+  # kubernetes ingress for aws alb
+  annotations:
+    alb.ingress.kubernetes.io/scheme: internet-facing
+    alb.ingress.kubernetes.io/target-type: ip
+    alb.ingress.kubernetes.io/tags: Environment=DEV
+    # in annotations we need to menction the group.name for sp the resouce go and attach to single alb 
+    alb.ingress.kubernetes.io/group.name: devopslt
+spec:
+  ingressClassName: alb
+  rules:
+  - host: "app2.devopslt.online"
+    http:
+      paths:
+      - pathType: Prefix
+        path: /
+        backend:
+          service:
+            name: app2-service
+            port:
+              number: 80
