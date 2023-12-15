@@ -44,7 +44,7 @@ metadata:
     alb.ingress.kubernetes.io/scheme: internet-facing
     alb.ingress.kubernetes.io/target-type: ip
     alb.ingress.kubernetes.io/tags: Environment=DEV
-    # in annotations we need to menction the group.name for sp the resouce go and attach to single alb 
+    # all the ingess resources will go and attach to particular loadbalancer
     alb.ingress.kubernetes.io/group.name: devopslt
 spec:
   ingressClassName: alb
