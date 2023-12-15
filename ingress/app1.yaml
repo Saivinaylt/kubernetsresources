@@ -15,7 +15,7 @@ spec:
         name: ingress
     spec:
       containers:
-      - image: nginx
+      - image: saivinaylt/app1:k8
         name: nginx
 # ---
 # # Here Ingress is the resource that is capable of creating AWS ALB resource, you must provide annotations
