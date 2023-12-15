@@ -17,6 +17,21 @@ spec:
       containers:
       - image: saivinaylt/app1:k8
         name: nginx
+---
+kind: Service
+apiVersion: v1
+metadata:
+  name: app1-service
+  labels:
+    service: ingress
+spec:
+  selector:
+    name: ingress
+  ports:
+  - name: http
+    protocol: TCP
+    port: 80
+    targetPort: 80
 # ---
 # # Here Ingress is the resource that is capable of creating AWS ALB resource, you must provide annotations
 # # annotations are used to connect the external resouces you must provide annotations
