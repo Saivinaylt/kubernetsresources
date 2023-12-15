@@ -1,57 +1,45 @@
 kind: Deployment
-apiVersion: apps/v1
-metedata: 
-  name: app1
-  labels:
-    name: app1
-spec:
-  replicas: 3
-  selector:
-    matchLabels:
-      name: app1
-  template:
-    metedata:
-      labels:
-        name: app1
-    spec:
-    - image: nginx
-      name: nginx
----
 apiVersion: v1
-kind: Service
 metadata:
   name: app1-service
+  labels:
+    service: ingress
 spec:
+  replicas: 1
   selector:
-    name: app1
-  ports:
-  - name: http-port
-    protocol: TCP
-    port: 80
-    targetPort: 80
----
-# Here Ingress is the resource that is capable of creating AWS ALB resource, you must provide annotations
-# annotations are used to connect the external resouces you must provide annotations
-apiVersion: networking.k8s.io/v1
-kind: Ingress
-metadata:
-  name: app1service
-  # kubernetes ingress for aws alb
-  annotations:
-    alb.ingress.kubernetes.io/scheme: internet-facing
-    alb.ingress.kubernetes.io/target-type: ip
-    alb.ingress.kubernetes.io/tags: Environment=DEV
-    alb.ingress.kubernetes.io/group.name: devopslt
-spec:
-  ingressClassName: alb
-  rules:
-  - host: "app1.devopslt.online"
-    http:
-      paths:
-      - pathType: Prefix
-        path: /
-        backend:
-          service:
-            name: name: app1-service
-            port:
-              number: 80
+    matchLabels:
+      name: ingress
+  template:
+    metadata:
+      labels:
+        name: ingress
+    spec:
+      containers:
+      - image: nginx
+        name: nginx
+# ---
+# # Here Ingress is the resource that is capable of creating AWS ALB resource, you must provide annotations
+# # annotations are used to connect the external resouces you must provide annotations
+# apiVersion: networking.k8s.io/v1
+# kind: Ingress
+# metadata:
+#   name: app1service
+#   # kubernetes ingress for aws alb
+#   annotations:
+#     alb.ingress.kubernetes.io/scheme: internet-facing
+#     alb.ingress.kubernetes.io/target-type: ip
+#     alb.ingress.kubernetes.io/tags: Environment=DEV
+#     alb.ingress.kubernetes.io/group.name: devopslt
+# spec:
+#   ingressClassName: alb
+#   rules:
+#   - host: "app1.devopslt.online"
+#     http:
+#       paths:
+#       - pathType: Prefix
+#         path: /
+#         backend:
+#           service:
+#             name: name: app1-service
+#             port:
+#               number: 80
