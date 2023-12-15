@@ -1,18 +1,18 @@
 kind: Deployment
 apiVersion: apps/v1
 metedata: 
-  name: deployment
+  name: app1
   labels:
-    kind: deployment
+    name: app1
 spec:
   replicas: 3
   selector:
     matchLabels:
-      course: kubrenetes
+      name: app1
   template:
     metedata:
       labels:
-        course: kubernetes
+        name: app1
     spec:
     - image: nginx
       name: nginx
@@ -20,10 +20,10 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: nginx-service
+  name: app1
 spec:
   selector:
-    course: kubernetes
+    name: app1
   ports:
   - name: http-port
     protocol: TCP
@@ -52,6 +52,6 @@ spec:
         path: /
         backend:
           service:
-            name: nginx-service
+            name: name: app1
             port:
               number: 80
