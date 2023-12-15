@@ -1,9 +1,9 @@
-kind: Deployement
+kind: Deployment
 apiVersion: apps/v1
 metedata: 
-  name: deployement
+  name: deployment
   labels:
-    kind: deployement
+    kind: deployment
 spec:
   replicas: 3
   selector:
