@@ -25,9 +25,9 @@ echo "${USERID}"
 if [ $? -ne 0 ]; then
 		echo "FAILED "
 		exit 1
-	else
+else
 		echo "SUCCESS"
-	fi
+fi
 
 
 
