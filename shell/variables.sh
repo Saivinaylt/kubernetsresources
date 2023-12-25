@@ -37,7 +37,7 @@ G="\e[32m"
 Y="\e[33m"
 N="\e[0m"
 
-echo "coloring red $R from hear my name $N normal"
+echo -e "coloring red $R from hear my name $N normal"
 
 
 
