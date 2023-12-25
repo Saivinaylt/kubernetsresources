@@ -28,8 +28,17 @@ if [ $USERID -ne 0 ]; then
     echo "Sucess=====>"
     fi
 
-yum update -y
-yum install git -y
+# ouptputredirectries > copy terminal content output to file >> appending &>> both sucess and error appending in file
+# colours coadnif b=30,r=31,g=32,y=33,n=0 nocolur
+
+
+R="\e[31m"
+G="\e[32m"
+Y="\e[33m"
+N="\e[0m"
+
+echo "coloring red ${R} from hear my name ${N} normal"
+
 
 
 
