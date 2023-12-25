@@ -16,11 +16,12 @@ echo " my name is ${FIRST} "
 
 # condations in shellscript if else condition
 # check the it sis root user or not
-USERID=(id)
+USERID=$(id)
+USER_ID=$(id -u)
 # if [ $? nq 0 ] then{
 #     echo 
 # }
 
-echo ${USERID}
+
 
 
