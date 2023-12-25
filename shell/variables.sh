@@ -14,3 +14,13 @@ FIRST="kaki"
 echo " my name is ${NAME} "
 echo " my name is ${FIRST} "
 
+# condations in shellscript if else condition
+# check the it sis root user or not
+USERID=${id}
+# if [ $? nq 0 ] then{
+#     echo 
+# }
+
+echo ${USERID}
+
+
