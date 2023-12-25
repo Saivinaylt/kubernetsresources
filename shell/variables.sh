@@ -23,5 +23,7 @@ USER_ID=$(id -u)
 # }
 
 echo "${USERID}"
+echo "$ls"
+
 
 
