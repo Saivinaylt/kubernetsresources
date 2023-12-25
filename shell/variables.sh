@@ -22,6 +22,6 @@ USER_ID=$(id -u)
 #     echo 
 # }
 
-
+echo "${USER_ID}"
 
 
