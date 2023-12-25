@@ -17,8 +17,8 @@ echo " my name is ${FIRST} "
 # condations in shellscript if else condition
 # check the it sis root user or not
 USERID=$(id)
-USER_ID=$(id -u)
-if [ $? -ne 0 ]; then
+USER_ID=$($?)
+if [ $USER_ID -ne 0 ]; then
     echo "failure"
 else 
     echo "sucess"
