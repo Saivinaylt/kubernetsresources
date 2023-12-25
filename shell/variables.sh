@@ -18,12 +18,13 @@ echo " my name is ${FIRST} "
 # check the it sis root user or not
 USERID=$(id)
 USER_ID=$(id -u)
-# if [ $? nq 0 ] then{
-#     echo 
-# }
+if [ $? -ne 0 ]; then
+    echo "failure"
+else 
+    echo "sucess"
+fi
 
 echo "${USERID}"
-echo "$ls"
 
 
 
