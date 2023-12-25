@@ -22,10 +22,10 @@ USERID=$(id -u)
 
 echo "${USERID}"
 
-if [ $? -ne 0 ]; then
-    echo " failure exit status"
+if [ $USERID -ne 0 ]; then
+    echo " ur not a root user"
     else
-    echo " sucess exit status"
+    echo "Sucess=====>"
     fi
 
 
