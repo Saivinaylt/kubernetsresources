@@ -28,6 +28,7 @@ if [ $USERID -ne 0 ]; then
     echo "Sucess=====>"
     fi
 
+yum update -y
 yum install git -y
 
 
