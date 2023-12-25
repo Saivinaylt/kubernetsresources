@@ -23,11 +23,10 @@ USERID=$(id)
 echo "${USERID}"
 
 if [ $? -ne 0 ]; then
-    echo "FAILED "
-	exit 1
-else
-	echo "SUCCESS"
-fi
+    echo " failure exit status"
+    else
+    echo " sucess exit status"
+    fi
 
 
 
