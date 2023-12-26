@@ -40,13 +40,11 @@ N="\e[0m"
 echo -e "coloring red ${R} from hear my name ${N} normal"
 
 # functions in shell scripting
- justcheck(){
-    ls -ltar
-    $?
- }
+VALIDATE(){
+    echo " hello"
+}
 
-justcheck
-
+VALIDATE
 
 
 
