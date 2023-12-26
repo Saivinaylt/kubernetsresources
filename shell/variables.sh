@@ -51,7 +51,7 @@ VALIDATE $1 "hi myself coming second argument"
 
 if [ $USERID -ne 0 ]; then
     echo " instaaling failure from web please check"
-    else
+else
     echo " go with root user to install"
 fi
 
