@@ -41,10 +41,10 @@ echo -e "coloring red ${R} from hear my name ${N} normal"
 
 # functions in shell scripting
 VALIDATE(){
-    echo " hello $1"
+    echo " hello $1 $2"
 }
 
-VALIDATE $1
+VALIDATE $1 "hi myself coming second argument"
 
 
 
