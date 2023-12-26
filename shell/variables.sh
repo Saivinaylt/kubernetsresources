@@ -16,7 +16,7 @@
 
 # # condations in shellscript if else condition
 # # check the it sis root user or not
-# USERID=$(id -u)
+USERID=$(id -u)
 
 
 
@@ -44,7 +44,15 @@ VALIDATE(){
     echo " hello $1 $2"
 }
 
+
 VALIDATE $1 "hi myself coming second argument"
 
+# installing jenkine
 
+if [ $USERID - ne 0 ]; then
+    echo " instaaling failure from web please check"
+    exit 1
+fi
+
+echo "for testing
 
