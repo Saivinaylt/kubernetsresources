@@ -49,15 +49,15 @@ VALIDATE $1 "hi myself coming second argument"
 
 # installing jenkine
 
-if [ $USERID - ne 0 ]; then
+if [ $USERID -ne 0 ]; then
     echo " instaaling failure from web please check"
     exit 1
 fi
 
-if [ $USER_ID -ne 0 ]; then
-	echo  -e "$R You are not the root user, you dont have permissions to run this $N"
-	exit 1
-fi
+# if [ $USER_ID -ne 0 ]; then
+# 	echo  -e "$R You are not the root user, you dont have permissions to run this $N"
+# 	exit 1
+# fi
 
 echo "for testing
 
