@@ -44,7 +44,7 @@ VALIDATE(){
     echo " hello $1"
 }
 
-VALIDATE
+VALIDATE $1
 
 
 
